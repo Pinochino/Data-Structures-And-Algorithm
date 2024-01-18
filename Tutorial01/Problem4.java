@@ -9,11 +9,18 @@ public class Problem4 {
                 return i;
             }
         }
-        return -1; // Return -1 if the name is not found
+        return -1; 
     }
     public static void main(String[] args) {
-        ArrayList<String> nameList = new ArrayList<>();
-        int result = findPosition(nameList, "Linh");
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the length of array: ");
+        int n = input.nextInt();
+        ArrayList<String> nameList = new ArrayList<>(n);
+        for(int i = 0; i < n; i++){
+            nameList.add(input.nextLine());
+        }
+        int result = findPosition(nameList, "Hung");
         System.out.println(result);
+        input.close();
     }
 }
