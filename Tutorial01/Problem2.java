@@ -2,23 +2,23 @@ package DSA.Tutorial01;
 import java.util.Scanner;
 public class Problem2 {
     public static int maxArray(int[] a){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the length of array: ");
-        int b = input.nextInt();
-        int[] arr = new int[b];
-        int max = arr[0];
-        for(int i = 0; i < b; i++){
-            arr[i] = input.nextInt();
-        }
-        for(int i = 0; i < b; i++){
-            if(i > arr[max]){
-                max = i;
+        int max = a[0];
+        for(int i = 1; i < a.length - 1; i++){
+            if(a[i] > max){
+                max = a[i];
             }
         }
-        input.close();
         return max;
     }
     public static void main(String[] args) {
-
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the length of array: ");
+        int n = input.nextInt();
+        int[] b = new int[n];
+        for(int i = 0; i < n; i++){
+            b[i] = input.nextInt();
+        }
+        System.out.println("max of array is: " + maxArray(b));
+        input.close();
     }
 }
