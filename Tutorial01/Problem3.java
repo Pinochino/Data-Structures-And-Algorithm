@@ -9,7 +9,7 @@ public class Problem3 {
         for(int i = 0; i < a.length - 1; i++){
             int p = i;
             for(int j = i + 1; j < a.length; j++){
-                if(b[j] > b[p] ){
+                if(b[i] > b[p] ){
                     p = j;
                 }
                 int temp = b[i];
