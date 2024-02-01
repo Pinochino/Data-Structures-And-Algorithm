@@ -1,4 +1,4 @@
-package DSA.Tutorial01;
+package Tutorial01;
 
 public class Example3 {
     public static int FindMaxSubSeqSum1(int[] a){

@@ -1,4 +1,4 @@
-package DSA.Tutorial01;
+package Tutorial01;
 // import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Example1 {

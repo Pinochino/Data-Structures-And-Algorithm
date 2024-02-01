@@ -1,4 +1,4 @@
-package DSA.Tutorial01;
+package Tutorial01;
 
 public class Problem3 {
     public static int[] findArray(int[] a){

@@ -1,4 +1,4 @@
-package DSA.Tutorial01;
+package Tutorial01;
 import java.util.Scanner;
 public class Problem2 {
     public static int maxArray(int[] a){
