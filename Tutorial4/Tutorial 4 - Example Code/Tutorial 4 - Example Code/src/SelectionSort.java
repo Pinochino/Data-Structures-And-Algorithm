@@ -22,9 +22,7 @@ public class SelectionSort {
 
             a[pos] = a[i];
             a[i] = max;
-
         }
-
     }
 
     public static void main(String[] args) {

@@ -1,4 +1,5 @@
-public class ArrayList {
+package myLinkedList;
+public class LinkedList {
 
     public static void printLinkedList(Node head) {
         if (head == null) {
@@ -72,7 +73,7 @@ public class ArrayList {
     }
 
     // Xoá phần tử đầu List
-    public static Node removeAtHeaNode(Node headNode) {
+    public static Node removeAtHeadNode(Node headNode) {
         if (headNode != null) {
             return headNode.next;
         }
@@ -98,8 +99,42 @@ public class ArrayList {
             } else {
                 prevNode.next = lastNode.next;
             }
-
-
         return headNode;
     }
+    // Xóa phần tử ở giữa 
+
+    public static Node removeAtIndex(Node headNode, int index){
+        if (headNode == null || index < 0) {
+            return null;
+        }
+        if (index == 0) {
+            return removeAtHeadNode(headNode);
+        }
+        Node curNode = headNode;
+        Node prevNode = null;
+        int count = 0;
+        boolean  isFound = true;
+        while (curNode != null) {
+            if (count == index) {
+                // remove currentIndex
+                break;
+            }
+            count++;
+            prevNode = curNode;
+            curNode = curNode.next;
+        }
+        if (isFound) {
+            if (prevNode == null) { 
+                // Current Node is Last node
+                return null;
+            } else {
+                if (curNode != null) {
+                    // Do nothing 
+                    prevNode.next = curNode.next;
+                }
+            }
+        }
+        return headNode;
+    }
+
 }
