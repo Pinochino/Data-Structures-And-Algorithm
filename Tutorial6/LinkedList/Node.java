@@ -30,7 +30,7 @@ public class SLList{
     private String data;
     private String node;
 
-    public void isEmpty(){
+    public SLNode isEmpty(){
         return head = null;
     }
 
