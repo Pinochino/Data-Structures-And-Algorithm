@@ -1,4 +1,4 @@
-package myLinkedList;
+package Tutorial6.LinkedList;
 public class LinkedList {
 
     public static void printLinkedList(Node head) {

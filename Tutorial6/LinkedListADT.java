@@ -1,3 +1,5 @@
+package Tutorial6;
+
 class SLNode {
     private String data;
     private SLNode next;

@@ -1,3 +1,5 @@
+package Tutorial6.ArrayList;
+
 public class ArrayListADT {
     private int[] array;
     private int size;
