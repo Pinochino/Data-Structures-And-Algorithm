@@ -24,6 +24,7 @@ public class SimplePow
         n=scanner.nextInt();        
 
         System.out.println("The value of (" + x + ")^" + n + " is: " + Pow(x,n));
+        scanner.close();
     }
     
 }

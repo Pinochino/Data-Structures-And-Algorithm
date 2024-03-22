@@ -79,6 +79,8 @@ public class Exercise_2
         
         sort_student_by_mark(names,marks);
         show_students(names,marks,m);
+        scanner.close();
+
     }
     
 }

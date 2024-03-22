@@ -61,5 +61,7 @@ public class Exercise_1
 
         System.out.println("The rearranged array is : ");
         print_array(a);        
+        scanner.close();
+
     }
 }

@@ -39,6 +39,7 @@ public class FasterPow
         n=scanner.nextInt();        
 
         System.out.println("The value of (" + x + ")^" + n + " is: " + RecPow(x,n));
+        scanner.close();
     }
     
 }

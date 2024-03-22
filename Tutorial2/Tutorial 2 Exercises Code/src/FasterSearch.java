@@ -72,6 +72,8 @@ public class FasterSearch
         m=scanner.nextInt();                
         
         System.out.println("The search result is (using iterative version): " + Search(a,m,0,a.length-1));
-        System.out.println("The search result is (using recursive version): " + RecSearch(a,m,0,a.length-1));        
+        System.out.println("The search result is (using recursive version): " + RecSearch(a,m,0,a.length-1));
+        scanner.close();
+
     }
 }

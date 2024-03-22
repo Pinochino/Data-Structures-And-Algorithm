@@ -39,6 +39,7 @@ public class FasterGCD
         n=scanner.nextInt();        
         
         System.out.println("The gcd("+ m + "," + n + ") is: " + RecGCD(m,n));
+        scanner.close();
     }
     
 }

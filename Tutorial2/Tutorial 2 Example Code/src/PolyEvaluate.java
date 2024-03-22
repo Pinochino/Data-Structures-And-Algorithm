@@ -54,5 +54,6 @@ public class PolyEvaluate
         x=scanner.nextDouble();
         
         System.out.println("The value P(" + x + ") = " + Evaluate(c,x));
+        scanner.close();
     }
 }

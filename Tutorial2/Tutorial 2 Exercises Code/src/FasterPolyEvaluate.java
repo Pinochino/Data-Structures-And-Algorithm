@@ -75,6 +75,7 @@ public class FasterPolyEvaluate
         x=scanner.nextDouble();
         System.out.println("Using SimpleEvaluate method, The value P(" + x + ") = " + SimpleEvaluate(c,x));
         System.out.println("Using Evaluate method, The value P(" + x + ") = " + Evaluate(c,x));
-        System.out.println("Using a recursive method, the value P(" + x + ") = " + RecEvaluate(c,x,0));        
+        System.out.println("Using a recursive method, the value P(" + x + ") = " + RecEvaluate(c,x,0));    
+        scanner.close();    
     }
 }
