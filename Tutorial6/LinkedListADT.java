@@ -120,20 +120,18 @@ public class LinkedListADT {
         list.add(new SLNode("Node 2"));
         list.add(new SLNode("Node 3"));
 
-        list.print(); // Output: Data: Node 3 Data: Node 2 Data: Node 1
+        list.print(); 
 
         list.addAt(1, new SLNode("Node 4"));
 
-        list.print(); // Output: Data: Node 3 Data: Node 4 Data: Node 2 Data: Node 1
-
+        list.print(); 
         list.remove(2);
 
-        list.print(); // Output: Data: Node 3 Data: Node 4 Data: Node 1
+        list.print();
 
-        System.out.println("Size: " + list.size()); // Output: Size: 3
+        System.out.println("Size: " + list.size()); 
 
-        System.out.println("Is empty? " + list.isEmpty()); // Output: Is empty? false
-
-        System.out.println("Position of 'Node 4': " + list.search("Node 4")); // Output: Position of 'Node 4': 1
+        System.out.println("Is empty? " + list.isEmpty()); 
+        System.out.println("Position of 'Node 4': " + list.search("Node 4")); 
     }
 }
