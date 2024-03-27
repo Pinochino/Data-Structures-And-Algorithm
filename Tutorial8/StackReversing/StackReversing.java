@@ -1,72 +1,58 @@
 package Tutorial8.StackReversing;
-
 public class StackReversing {
+
     private ArrayQueue q;
+    private SLLStack s;
     public ArrayQueue getQ() {
         return q;
     }
-
     public void setQ(ArrayQueue q) {
         this.q = q;
     }
-
-    private SLLStack s;
-
     public SLLStack getS() {
         return s;
     }
-
     public void setS(SLLStack s) {
         this.s = s;
     }
 
-    public StackReversing() {
-        q = new ArrayQueue(100);
-        s = new SLLStack();
-    }
-
-    public void reverse(ArrayQueue a, SLLStack b) {
-        int x;
-        while(!b.isEmpty()){
-            x = b.pop().getData();
-            a.enqueue(x);
+    public SLLStack reverse(ArrayQueue q, SLLStack s) {
+        while (!s.isEmpty()) {
+            q.enqueue(s.pop());
         }
-        while (!a.isEmpty()){
-            x = a.dequeue();
-            b.push(new SLLNode(x));
+        while (!q.isEmpty()) {
+            s.push(q.dequeue());
+        }
+        return s;
+    }
+
+    public static void main(String[] args) {
+        ArrayQueue a = new ArrayQueue();
+        SLLStack b = new SLLStack();
+        
+        StackNode node1 = new StackNode();
+        node1.setData(4);
+        a.enqueue(node1);
+        
+        StackNode node2 = new StackNode();
+        node2.setData(2);
+        a.enqueue(node2);
+        
+        StackNode node3 = new StackNode();
+        node3.setData(3);
+        a.enqueue(node3);
+        
+        StackNode node4 = new StackNode();
+        node4.setData(1);
+        a.enqueue(node4);
+    
+        StackReversing stackReversing = new StackReversing();
+        SLLStack result = stackReversing.reverse(a, b);
+    
+        while (!result.isEmpty()) {
+            System.out.println(result.pop().getData());
         }
     }
-
-   public static void main(String[] args) {
-    ArrayQueue arrayQueue = new ArrayQueue(100);
-    SLLStack sllStack = new SLLStack();
-    SLLNode c = new SLLNode(1);
-    SLLNode d = new SLLNode(2);
-    SLLNode e = new SLLNode(3);
-    sllStack.push(c);
-    sllStack.push(d);
-    sllStack.push(e);
-    StackReversing stackReversing = new StackReversing();
-    SLLStack reversedStack = stackReversing.reverse(arrayQueue, sllStack);
-    // Print the reversed stack
-    while (!reversedStack.isEmpty()) {
-        System.out.print(reversedStack.pop().getData() + " ");
-    }
-}
-
-// Modify the reverse method to return the reversed stack
-public SLLStack reverse(ArrayQueue a, SLLStack b) {
-    int x;
-    while (!b.isEmpty()) {
-        x = b.pop().getData();
-        a.enqueue(x);
-    }
-    while (!a.isEmpty()) {
-        x = a.dequeue();
-        b.push(new SLLNode(x));
-    }
-    return b; // Return the reversed stack
-}
-
+    
     
 }

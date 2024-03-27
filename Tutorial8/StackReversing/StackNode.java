@@ -1,8 +1,9 @@
 package Tutorial8.StackReversing;
-public class SLLNode {
+
+class StackNode {
 
     private int data;
-    private SLLNode next;
+    private StackNode next;
 
     public int getData() {
         return data;
@@ -12,19 +13,11 @@ public class SLLNode {
         this.data = data;
     }
 
-
-    public SLLNode getNext() {
+    public StackNode getNext() {
         return next;
     }
 
-    public void setNext(SLLNode next) {
+    public void setNext(StackNode next) {
         this.next = next;
     }
-
-    public SLLNode(int data){
-        this.data = data;
-        this.next = null;
-    }
-
-    
 }

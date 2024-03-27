@@ -1,43 +1,68 @@
 package Tutorial8.StackReversing;
 
 public class ArrayQueue {
+
     private int front;
     private int rear;
-    private int[] q;
-    private int maxSize;
+    private StackNode[] q;
+    private final int maxSize;
 
-    public ArrayQueue(int maxSize) {
-        this.maxSize = maxSize;
-        q = new int[maxSize];
-        front = 0;
-        rear = 0;
+    public ArrayQueue(){
+        maxSize = 100;
+        q = new StackNode[maxSize];
     }
 
-    public boolean isEmpty() {
+    public int getFront() {
+        return front;
+    }
+
+    public void setFront(int front) {
+        this.front = front;
+    }
+
+    public int getRear() {
+        return rear;
+    }
+
+    public void setRear(int rear) {
+        this.rear = rear;
+    }
+
+    public StackNode[] getQ() {
+        return q;
+    }
+
+    public void setQ(StackNode[] q) {
+        this.q = q;
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+    
+    public boolean isEmpty(){
         return front == rear;
     }
 
-    public boolean isFull() {
-        return (rear + 1) % maxSize == front;
+    public boolean isFull(){
+        return rear == (front - 1 + maxSize) % maxSize;
     }
 
-    public void enqueue(int item) {
+    public void enqueue(StackNode i){
         if (!isFull()) {
-            q[rear] = item;
+            q[rear] = i;
             rear = (rear + 1) % maxSize;
-        } else {
-            System.out.println("Queue is full");
         }
     }
 
-    public int dequeue() {
+    public StackNode dequeue(){
         if (!isEmpty()) {
-            int pos = q[front];
+            StackNode dequeuedElement = q[front];
             front = (front + 1) % maxSize;
-            return pos;
-        } else {
-            System.out.println("Queue is empty");
-            return -1;
+            return dequeuedElement;
         }
+        return null; // Returning null to indicate underflow, or you can throw an exception
     }
+
+   
 }

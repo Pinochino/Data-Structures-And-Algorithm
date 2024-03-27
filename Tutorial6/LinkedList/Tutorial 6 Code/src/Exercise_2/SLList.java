@@ -141,7 +141,7 @@ public class SLList
         for (int i=1; i<l; i++)
         {
             SLNode aNode=get(i);
-            if (!aNode.getData.equals(data))
+            if (!aNode.getData().equals(data))
                 return i;
         }
         return -1;       

@@ -1,45 +1,36 @@
-    package Tutorial8.StackReversing;
-    public  class SLLStack {
-        private SLLNode top;
+package Tutorial8.StackReversing;
+public class SLLStack {
 
-        public SLLNode getTop() {
-            return top;
-        }
+    private StackNode top;
 
-        public void setTop(SLLNode top) {
-            this.top = top;
-        }
+    public StackNode getTop() {
+        return top;
+    }
 
+    public void setTop(StackNode top) {
+        this.top = top;
+    }
+    
+    public boolean isEmpty(){
+        return top == null;
+    }
 
-        public  boolean isEmpty(){
-            if (top == null) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+    public void push(StackNode newNode){
+        newNode.setNext(top);
+        top = newNode;
+    }
 
-        public void push(SLLNode newNode){
-            newNode.setNext(top);
-            top = newNode;
-        }
-
-        public SLLNode pop(){
-            if (!isEmpty()) {
-               SLLNode topNode = top;
-               top = top.getNext();
-               return topNode;
-            }
-            else {
-                return  null;
-            }
-        }
-
-        public SLLNode peak(){
-            if (!isEmpty()) {
-                return top;
-            } else {
-                return  null;
-            }
+    public StackNode pop(){
+        if (!isEmpty()) {
+            StackNode topNode = top;
+            top = top.getNext();
+            return topNode;
+        } else {
+            return null; // Stack is empty, return null
         }
     }
+
+    public StackNode peek(){
+        return top; // Return the top node without popping it
+    }
+}
