@@ -1,99 +1,86 @@
 package Tutorial8;
-import java.util.Stack;
 
 public class PostfixEvaluation {
 
-    private int top;
-    private String[] s;
-    private int maxSize;
+    public static class ArrayStack {
 
-    public PostfixEvaluation(){
-        maxSize = 100;
-        s = new String[maxSize];
-        top = -1;
-    }
-
-    public boolean isEmpty(){
-        return top == -1;
-    }
-
-    public boolean isFull(){
-        return top == maxSize - 1;
-    }
-
-    public void push(String item){
-        if (!isFull()) {
-            top++;
-            s[top] = item;
+        private int top;
+        private int[] stack;
+        private int maxSize;
+    
+        public ArrayStack() {
+            maxSize = 100;
+            stack = new int[maxSize];
+            top = -1;
         }
-    }
-
-    public String pop(){
-        if (!isEmpty()) {
-            String tmp = s[top];
-            top--;
-            return tmp;
-        } else {
-            return  null;
+    
+        public boolean isEmpty() {
+            return top == -1;
         }
-    }
-
-    public String peak(){
-        if (!isEmpty()) {
-            return s[top];
-        } else {
-            return null;
+    
+        public boolean isFull() {
+            return top == maxSize - 1;
         }
-    }
-
-    public int precedence(String operator) {
-        switch (operator) {
-            case "+":
-            case "-":
-                return 1;
-            case "*":
-            case "/":
-                return 2;
-            default:
-                return 0;
-        }
-    }
-
-    public void postfixEvaluation(String infix) {
-        String[] tokens = infix.split("\\s+");
-        Stack<String> stack = new Stack<>();
-
-        for (String token : tokens) {
-            if (token.isEmpty()) {
-                continue;
-            } else if (Character.isDigit(token.charAt(0))) {
-                System.out.print(token + " ");
-            } else if (token.equals("(")) {
-                stack.push(token);
-            } else if (token.equals(")")) {
-                while (!stack.isEmpty() && !stack.peek().equals("(")) {
-                    System.out.print(stack.pop() + " ");
-                }
-                if (!stack.isEmpty()) {
-                    stack.pop(); // Discard the left parenthesis
-                }
-            } else {
-                while (!stack.isEmpty() && precedence(token) <= precedence(stack.peek())) {
-                    System.out.print(stack.pop() + " ");
-                }
-                stack.push(token);
+    
+        public void push(int item) {
+            if (!isFull()) {
+                top++;
+                stack[top] = item;
             }
         }
-
-        while (!stack.isEmpty()) {
-            System.out.print(stack.pop() + " ");
+    
+        public Integer pop() {
+            if (!isEmpty()) {
+                int tmp = stack[top];
+                top--;
+                return tmp;
+            } else {
+                return null;
+            }
         }
+    
+        public Integer peek() {
+            if (!isEmpty()) {
+                return stack[top];
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public static ArrayStack stack = new ArrayStack();
+
+    static int postfixEvaluation(String a) {
+        
+        for (int j = 0; j < a.length(); j++) {
+            char c = a.charAt(j);
+            if (Character.isDigit(c)) {
+                stack.push(c - '0');
+            } else {
+                int val1 = stack.pop();
+                int val2 = stack.pop();
+
+                switch (c) {
+                    case '+':
+                        stack.push(val2 + val1);
+                        break;
+                    case '-':
+                        stack.push(val2 - val1);
+                        break;
+                    case '*':
+                        stack.push(val2 * val1);
+                        break;
+                    case '/':
+                        stack.push(val2 / val1);
+                        break;
+                }
+            }
+        }
+        return stack.pop();
     }
 
     public static void main(String[] args) {
-        PostfixEvaluation evaluator = new PostfixEvaluation();
-        String expression = "(1+3)*((2-4)+5*7)";
-        System.out.print("Postfix expression: ");
-        evaluator.postfixEvaluation(expression);
+        String exp = "231*+9-";
+        System.out.println("postfix evaluation: " + postfixEvaluation(exp));
     }
 }
